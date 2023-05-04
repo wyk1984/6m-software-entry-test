@@ -1,11 +1,54 @@
-
 /*
-    Task 1:
-    - Link the file `external.js` to this file.
-    - To test if the linking works, open q5-output.html in the browser and it should show "Hello World!"
+    Task 1: 
+    - Implement a Child class that extends the Parent.
+    - Add a constructor to the Child class can calls super().
+    - Implement a new function addNewAbilities(newAbility) where the new ability will be added to the Parent's #abilities array.     
 */
+class Parent {
+  abilities = [];
+  constructor() {
+    this.abilities.push("Parenting");
+    this.abilities.push("Role modeling");
+    this.addNewAbilities = function (addNewA) {
+      this.abilities.push(addNewA);
+    };
+  }
+
+  showAbilities() {
+    console.log("These are the abilities:");
+    for (const a of this.abilities) {
+      console.log(a);
+    }
+  }
+}
+
+const p = new Parent();
+p.showAbilities(); // Observe that this function prints "Parenting" and "Role modeling".
 
 // Task 1: Add code here
+//Implement a Child class that extends the Parent. Copy the parent code
+class Child {
+  abilities = [];
+  //Add a constructor to the Child class can calls super().
+  constructor() {
+    this.abilities.push("Parenting");
+    this.abilities.push("Role modeling");
+  }
 
-// Do not change the code below
-document.querySelector("#test").innerHTML = print();
+  showAbilities() {
+    console.log("These are the abilities:");
+    for (const a of this.abilities) {
+      console.log(a);
+    }
+//++++++++Implement a Child class that extends the Parent.++++++++
+class Child extends Parent {
+  Child() {
+    //++++++++Add a constructor to the Child class can calls super().++++++++
+    Child.super();
+  }
+}
+//++++++++  Implement a new function addNewAbilities(newAbility) where the new ability will be added to the Parent's #abilities array.  ++++++++
+
+const c = new Child();
+c.addNewAbility("Dancing");
+c.showAbilities(); // This function should print "Parenting", "Role modeling" and "Dancing".
